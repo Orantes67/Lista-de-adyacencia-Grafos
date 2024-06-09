@@ -3,19 +3,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vertice {
-    private String dato;
+    private int dato;
     private List<Arista> listaAristas;
 
-    public Vertice(String valor) {
-        this.dato = valor;
+    public Vertice(int opc) {
+        this.dato = opc;
+        this.listaAristas = new ArrayList<>();
     }
 
-    public String getDato() {
+    public void setDato(int dato) {
+        this.dato = dato;
+    }
+
+    public int getDato() {
         return dato;
-    }
-
-    public void setDato(String valor) {
-        this.dato = valor;
     }
 
     public List<Arista> getAristas() {
@@ -33,5 +34,4 @@ public class Vertice {
     public String toString() {
         return "\n\tVertice=" + getDato() + ", Aristas=" + getAristas();
     }
-    
 }
