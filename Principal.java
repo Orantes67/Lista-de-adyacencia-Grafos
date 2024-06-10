@@ -4,9 +4,41 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        Grafo grafo = verificarVertices();
-        System.out.println(grafo);
+        menu();
     }
+    public static void menu() {
+        Scanner leer = new Scanner(System.in);
+        int opc = 0;
+
+        do {
+            System.out.println("INGRESE LO QUE DESEE HACER \n1:crear vertice\n2:salir");
+
+            boolean entradaValida = false;
+            while (entradaValida==false) {
+                try {
+                    opc = leer.nextInt();
+                    entradaValida = true;
+                } catch (Exception e) {
+                    System.out.println("Por favor, ingrese un número válido.");
+                    leer.next(); 
+                }
+            switch (opc) {
+                case 1:
+                    Grafo grafo = verificarVertices();
+                    System.out.println(grafo);
+                    break;
+                case 2:
+                    System.out.println("HASTA PRONTO");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+                    break;
+            }
+            }
+
+        } while (opc != 2);
+    }
+
 
     public static Vertice crearVertice() {
         Scanner entrada = new Scanner(System.in);
@@ -66,7 +98,7 @@ public class Principal {
         if (opc % r == 0) {
             return true;
         } else {
-            System.out.println(" ERROR --ingrese un múltiplo de 4 -- ");
+            System.out.println("ingrese un múltiplo de 4");
             return false;
         }
     }
